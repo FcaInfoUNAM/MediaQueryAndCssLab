@@ -1,0 +1,271 @@
+/* ============================================================
+   custom.css — CSS Media Queries & Images Lab
+   FCA Informática UNAM
+
+   HOW TO USE THIS FILE:
+   - Read each section's comment carefully.
+   - Look for  ✏️ YOUR TURN  blocks — that is where you write your code.
+   - Do NOT edit index.html. All your work goes here.
+   - Open index.html in a browser and resize the window to see changes.
+   ============================================================ */
+
+
+/* ============================================================
+   BASE STYLES (already done — do not modify)
+   These styles apply to ALL screen sizes.
+   ============================================================ */
+
+/* --- Hero section --- */
+.hero-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+}
+
+.hero-caption h1 {
+  margin: 0 0 0.25rem;
+}
+
+.hero-caption p {
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* --- Showcase image frames --- */
+.img-frame {
+  width: 100%;
+  overflow: hidden;
+  background-color: #e9ecef;
+}
+
+.showcase-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* --- Fluid image --- */
+.fluid-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Background image demo --- */
+.bg-img-demo {
+  width: 100%;
+  height: 200px;
+  background-image: url('https://picsum.photos/seed/sky/800/400');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* --- Responsive grid cards --- */
+.r-card {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+.r-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.r-card p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+
+/* ============================================================
+   EXERCISE 1 — object-fit & object-position
+   ============================================================
+   The three showcase frames (.frame-cover, .frame-contain,
+   .frame-position) need a fixed height so that object-fit
+   actually has an effect.
+
+   ✏️ YOUR TURN:
+   Set a fixed height of 200px on each frame class below.
+   Then apply the correct object-fit value for each one.
+   For .frame-position also add an object-position value
+   (try "top", "bottom", "left", "right", or "50% 20%").
+
+   Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
+   ============================================================ */
+
+.frame-cover {
+  height: /* ✏️ add height */ ;
+}
+
+.frame-cover .showcase-img {
+  object-fit: /* ✏️ cover  */ ;
+}
+
+.frame-contain {
+  height: /* ✏️ add height */ ;
+}
+
+.frame-contain .showcase-img {
+  object-fit: /* ✏️ contain */ ;
+}
+
+.frame-position {
+  height: /* ✏️ add height */ ;
+}
+
+.frame-position .showcase-img {
+  object-fit: cover;
+  object-position: /* ✏️ try different values */ ;
+}
+
+
+
+/* ============================================================
+   EXERCISE 2 — aspect-ratio
+   ============================================================
+   .frame-aspect should always keep a 16/9 aspect ratio.
+   This means as the card gets wider or narrower, the height
+   adjusts automatically.
+
+   ✏️ YOUR TURN:
+   Add the aspect-ratio property to .frame-aspect below.
+   Also apply object-fit: cover to its child .showcase-img.
+
+   Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+   ============================================================ */
+
+.frame-aspect {
+  width: 100%;
+  /* ✏️ add aspect-ratio here */
+  overflow: hidden;
+}
+
+.frame-aspect .showcase-img {
+  /* ✏️ add object-fit here */
+}
+
+
+
+/* ============================================================
+   EXERCISE 3 — Hero image: mobile-first media queries
+   ============================================================
+   Right now the hero image has no height set, so it will just
+   use its natural proportions. We want to control it at each
+   breakpoint:
+
+     • Mobile (default, no media query): height 200px
+     • Small screens  (≥ 576px):  height 280px
+     • Medium screens (≥ 768px):  height 350px
+     • Large screens  (≥ 992px):  height 450px
+     • Extra large    (≥ 1200px): height 520px
+
+   ✏️ YOUR TURN:
+   1. Set the default height of .hero-img to 200px below.
+   2. Then write four @media queries (mobile-first, using min-width)
+      that progressively increase the height.
+
+   Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
+   ============================================================ */
+
+/* Default (mobile) */
+.hero-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: /* ✏️ 200px */ ;
+}
+
+/* ✏️ Small — @media (min-width: 576px) { ... } */
+
+
+/* ✏️ Medium — @media (min-width: 768px) { ... } */
+
+
+/* ✏️ Large — @media (min-width: 992px) { ... } */
+
+
+/* ✏️ Extra Large — @media (min-width: 1200px) { ... } */
+
+
+
+
+/* ============================================================
+   EXERCISE 4 — Responsive grid layout with CSS Grid
+   ============================================================
+   .responsive-grid is a CSS Grid container that should change
+   the number of columns at each breakpoint:
+
+     • Mobile (default):       1 column
+     • Small  (≥ 576px):       2 columns
+     • Medium (≥ 768px):       2 columns
+     • Large  (≥ 992px):       3 columns
+     • Extra Large (≥ 1200px): 4 columns
+
+   ✏️ YOUR TURN:
+   1. Set up .responsive-grid as a 1-column grid below.
+   2. Add @media queries to increase columns at each breakpoint.
+      Use grid-template-columns: repeat(N, 1fr) to define columns.
+
+   Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns
+   ============================================================ */
+
+/* Default (mobile, 1 column) */
+.responsive-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: /* ✏️ repeat(1, 1fr) */ ;
+}
+
+/* ✏️ Small (≥ 576px) — 2 columns */
+
+
+/* ✏️ Medium (≥ 768px) — 2 columns */
+
+
+/* ✏️ Large (≥ 992px) — 3 columns */
+
+
+/* ✏️ Extra Large (≥ 1200px) — 4 columns */
+
+
+
+
+/* ============================================================
+   EXERCISE 5 — BONUS: Dark mode with prefers-color-scheme
+   ============================================================
+   Modern browsers can detect if the OS is in dark mode.
+   You can respond to that with the prefers-color-scheme media feature.
+
+   ✏️ YOUR TURN:
+   Write a media query using:
+     @media (prefers-color-scheme: dark)
+   Inside it, change:
+     - body background to #121212
+     - body text color to #f0f0f0
+     - .r-card background to #1e1e1e
+     - .r-card border-color to #444
+
+   Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+   ============================================================ */
+
+/* ✏️ Write your dark mode media query here */

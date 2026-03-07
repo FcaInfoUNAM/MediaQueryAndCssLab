@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Media Queries & Images Lab</title>
+
+  <!-- Bootstrap 5 for structural styling only -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Your custom CSS — this is the file students will edit -->
+  <link rel="stylesheet" href="custom.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <a class="navbar-brand" href="#">🖼️ Image Responsive Lab</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#hero">Hero</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#card-section">Cards</a></li>
+        <li class="nav-item"><a class="nav-link" href="#breakpoint-indicator">Breakpoints</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== BREAKPOINT INDICATOR (students can see which breakpoint is active) ===== -->
+  <div id="breakpoint-indicator" class="text-center py-2 fw-bold text-white">
+    <!-- JS fills this in -->
+  </div>
+
+  <!-- ===== SECTION 1: HERO IMAGE ===== -->
+  <section id="hero" class="container-fluid px-0">
+    <div class="hero-wrapper">
+      <img
+        id="hero-img"
+        class="hero-img"
+        src="https://picsum.photos/seed/landscape/1200/500"
+        alt="A beautiful landscape"
+      />
+      <div class="hero-caption">
+        <h1>Responsive Images with CSS</h1>
+        <p>Resize the browser window and watch the magic.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: PROPERTY SHOWCASE ===== -->
+  <section id="gallery" class="container my-5">
+    <h2 class="mb-4 text-center">📐 Image Property Showcase</h2>
+    <p class="text-center text-muted mb-4">
+      Each card demonstrates a different CSS image property. Check <code>custom.css</code> to see how each one works.
+    </p>
+
+    <div class="row g-4">
+
+      <!-- object-fit: cover -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="img-frame frame-cover">
+            <img src="https://picsum.photos/seed/city/600/400" alt="City" class="showcase-img" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><code>object-fit: cover</code></h5>
+            <p class="card-text">Fills the container, cropping the image as needed. Aspect ratio is preserved.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- object-fit: contain -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="img-frame frame-contain">
+            <img src="https://picsum.photos/seed/forest/600/400" alt="Forest" class="showcase-img" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><code>object-fit: contain</code></h5>
+            <p class="card-text">Fits the whole image inside the container. May leave empty space on the sides.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- object-position -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="img-frame frame-position">
+            <img src="https://picsum.photos/seed/mountain/600/400" alt="Mountain" class="showcase-img" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><code>object-position</code></h5>
+            <p class="card-text">Controls which part of the image is visible when cropped with <code>object-fit: cover</code>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- max-width / width: 100% -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm p-3">
+          <img
+            src="https://picsum.photos/seed/river/600/300"
+            alt="River"
+            class="fluid-img"
+          />
+          <div class="card-body px-0">
+            <h5 class="card-title"><code>width: 100% / max-width</code></h5>
+            <p class="card-text">The image stretches to fill its parent but never exceeds its natural size.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- aspect-ratio -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="img-frame frame-aspect">
+            <img src="https://picsum.photos/seed/desert/600/400" alt="Desert" class="showcase-img" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><code>aspect-ratio</code></h5>
+            <p class="card-text">Locks a 16/9 ratio on the container so images are always proportional regardless of width.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- background-image with background-size -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="bg-img-demo"></div>
+          <div class="card-body">
+            <h5 class="card-title"><code>background-size: cover</code></h5>
+            <p class="card-text">Using an image as a CSS background with <code>background-size</code> and <code>background-position</code>.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: RESPONSIVE CARD LAYOUT ===== -->
+  <section id="card-section" class="container my-5">
+    <h2 class="mb-2 text-center">📱 Responsive Card Layout</h2>
+    <p class="text-center text-muted mb-4">
+      This grid changes column count at different breakpoints — controlled entirely by <code>custom.css</code> media queries.
+    </p>
+
+    <div class="responsive-grid">
+      <div class="r-card"><img src="https://picsum.photos/seed/photo1/400/300" alt="Photo 1" /><p>Photo 1</p></div>
+      <div class="r-card"><img src="https://picsum.photos/seed/photo2/400/300" alt="Photo 2" /><p>Photo 2</p></div>
+      <div class="r-card"><img src="https://picsum.photos/seed/photo3/400/300" alt="Photo 3" /><p>Photo 3</p></div>
+      <div class="r-card"><img src="https://picsum.photos/seed/photo4/400/300" alt="Photo 4" /><p>Photo 4</p></div>
+      <div class="r-card"><img src="https://picsum.photos/seed/photo5/400/300" alt="Photo 5" /><p>Photo 5</p></div>
+      <div class="r-card"><img src="https://picsum.photos/seed/photo6/400/300" alt="Photo 6" /><p>Photo 6</p></div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <small>CSS Media Queries Lab &mdash; FCA Informática UNAM</small>
+  </footer>
+
+  <!-- Breakpoint indicator script -->
+  <script>
+    function updateBreakpoint() {
+      const w = window.innerWidth;
+      const el = document.getElementById('breakpoint-indicator');
+      let label, color;
+      if (w < 576) {
+        label = `📱 Extra Small (xs) — ${w}px  |  < 576px`;
+        color = '#dc3545';
+      } else if (w < 768) {
+        label = `📱 Small (sm) — ${w}px  |  576px–767px`;
+        color = '#fd7e14';
+      } else if (w < 992) {
+        label = `💻 Medium (md) — ${w}px  |  768px–991px`;
+        color = '#198754';
+      } else if (w < 1200) {
+        label = `🖥️ Large (lg) — ${w}px  |  992px–1199px`;
+        color = '#0d6efd';
+      } else {
+        label = `🖥️ Extra Large (xl+) — ${w}px  |  ≥ 1200px`;
+        color = '#6f42c1';
+      }
+      el.textContent = label;
+      el.style.backgroundColor = color;
+    }
+    updateBreakpoint();
+    window.addEventListener('resize', updateBreakpoint);
+  </script>
+
+</body>
+</html>
